@@ -1,8 +1,6 @@
 package com.cg.hospitalmanagementsystem.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,4 +23,8 @@ public class Physician {
 
     @Column(name = "SSN")
     private Integer ssn;
+
+    @ManyToOne
+    @JoinColumn(name = "DepartmentID")
+    private Department department;
 }
