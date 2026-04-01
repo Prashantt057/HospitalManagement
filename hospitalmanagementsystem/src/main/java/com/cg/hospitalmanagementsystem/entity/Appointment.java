@@ -1,3 +1,8 @@
+package com.cg.hospitalmanagementsystem.entity;
+
+import com.cg.hospitalmanagementsystem.entity.Nurse;
+import com.cg.hospitalmanagementsystem.entity.Patient;
+import com.cg.hospitalmanagementsystem.entity.Physician;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
