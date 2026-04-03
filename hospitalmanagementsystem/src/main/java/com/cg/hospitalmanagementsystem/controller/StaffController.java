@@ -2,6 +2,7 @@ package com.cg.hospitalmanagementsystem.controller;
 
 import com.cg.hospitalmanagementsystem.dto.request.StaffLoginRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffRegisterRequest;
+import com.cg.hospitalmanagementsystem.dto.response.PatientResponse;
 import com.cg.hospitalmanagementsystem.entity.Nurse;
 import com.cg.hospitalmanagementsystem.entity.Patient;
 import com.cg.hospitalmanagementsystem.entity.Physician;
@@ -51,6 +52,14 @@ public class StaffController {
         List<Nurse> nurses = staffServiceImp.fetchAllNurse();
         return ResponseEntity.ok(nurses);
     }
+
+    @GetMapping("/patientById/{id}")
+    public ResponseEntity<PatientResponse> getPatientById(@PathVariable Integer id){
+        PatientResponse patient = staffServiceImp.fetchPatientById(id);
+        return ResponseEntity.ok(patient);
+    }
+
+
 
 
 }

@@ -2,12 +2,15 @@ package com.cg.hospitalmanagementsystem.service.imp;
 
 import com.cg.hospitalmanagementsystem.dto.request.StaffLoginRequest;
 import com.cg.hospitalmanagementsystem.dto.request.StaffRegisterRequest;
+import com.cg.hospitalmanagementsystem.dto.response.PatientResponse;
 import com.cg.hospitalmanagementsystem.entity.Nurse;
 import com.cg.hospitalmanagementsystem.entity.Patient;
 import com.cg.hospitalmanagementsystem.entity.Physician;
 import com.cg.hospitalmanagementsystem.entity.Staff;
 import com.cg.hospitalmanagementsystem.exception.InvalidCredentialException;
+import com.cg.hospitalmanagementsystem.exception.PatientNotFoundException;
 import com.cg.hospitalmanagementsystem.exception.UserNotFoundException;
+import com.cg.hospitalmanagementsystem.mapper.PatientMapper;
 import com.cg.hospitalmanagementsystem.reposistory.DoctorRepository;
 import com.cg.hospitalmanagementsystem.reposistory.NurseRepository;
 import com.cg.hospitalmanagementsystem.reposistory.PatientRepository;
@@ -74,5 +77,12 @@ public class StaffServiceImp implements StaffService {
         return nurses;
     }
 
+
+    public PatientResponse fetchPatientById(Integer id) {
+        Patient patient = patientRepository.findById(id)
+                .orElseThrow(() -> new PatientNotFoundException("No Patient with given Id"));
+
+        return PatientMapper.mapToDto(patient);
+    }
 
 }
