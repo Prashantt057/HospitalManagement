@@ -26,5 +26,8 @@ public class Staff {
 
     @Column(name = "staffPassword", nullable = false)
     private String staffPassword;
+
+    @Column(name = "role")
+    private String role;
 }
 
