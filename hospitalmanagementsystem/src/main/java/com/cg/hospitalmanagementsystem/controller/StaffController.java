@@ -31,11 +31,7 @@ public class StaffController {
         return ResponseEntity.ok("Staff registered successfully");
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<String> login(@RequestBody StaffLoginRequest staffLoginRequest){
-        staffServiceImp.loginStaff(staffLoginRequest);
-        return ResponseEntity.ok("Logged In");
-    }
+
 
     @GetMapping("/allpatients")
     public ResponseEntity<List<Patient>> getPatients(){
